@@ -24,12 +24,31 @@
           "type": "title",
           "settings": {}
         },
+        "custom_liquid_3hBWMN": {
+          "type": "custom_liquid",
+          "name": "Weather Block",
+          "settings": {
+            "custom_liquid": "<custom-weather></custom-weather>"
+          }
+        },
+        "custom_liquid_N6qtNF": {
+          "type": "custom_liquid",
+          "name": "Size guide Block",
+          "settings": {
+            "custom_liquid": "<!-- Your Manual Button -->\n<button class=\"trigger-popup\" data-target=\"examplePopup\">Size guide</button>"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
         },
+        "custom_variant_Jzjake": {
+          "type": "custom_variant",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
@@ -46,9 +65,32 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
+        "collapsible_tab_QWhTDj": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "icon": "none",
+            "content": "{{ product.description }}",
+            "page": ""
+          }
+        },
+        "collapsible_tab_6Hgrda": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fabric",
+            "icon": "none",
+            "content": "{{ product.metafields.custom.fabric | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_tab_g6Rk3b": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Care Instructions",
+            "icon": "none",
+            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "page": ""
+          }
         },
         "share": {
           "type": "share",
@@ -60,20 +102,25 @@
       "block_order": [
         "vendor",
         "title",
+        "custom_liquid_3hBWMN",
+        "custom_liquid_N6qtNF",
         "price",
+        "custom_variant_Jzjake",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
+        "collapsible_tab_QWhTDj",
+        "collapsible_tab_6Hgrda",
+        "collapsible_tab_g6Rk3b",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
@@ -101,7 +148,7 @@
         "padding_bottom": 28
       }
     },
-    "recently_viewed_products_h6LDfN": {
+    "recently_viewed_products_XGt7Mk": {
       "type": "recently-viewed-products",
       "name": "Recently viewed Products",
       "settings": {}
@@ -110,6 +157,6 @@
   "order": [
     "main",
     "related-products",
-    "recently_viewed_products_h6LDfN"
+    "recently_viewed_products_XGt7Mk"
   ]
 }

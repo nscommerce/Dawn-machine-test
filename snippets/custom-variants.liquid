@@ -1,0 +1,21 @@
+{%- unless product.has_only_default_variant -%}
+<custom-variant-selects data-product='{{ product | json }}' data-handle="{{ product.handle }}" data-sectionid="{{ section.id }}">
+  {% for option in product.options_with_values %}
+    <div class="custom-option-group">
+      <label>{{ option.name }}</label>
+      <div class="variant-options">
+        {% for value in option.values %}
+          <button
+            type="button"
+            class="variant-btn {% if value.selected %}active{% endif %} {% unless value.available %}sold-out{% endunless %}"
+            data-option="{{ option.name }}"
+            data-option-value-id="{{ value.id }}"
+          >
+            {{ value }}
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</custom-variant-selects>
+{%- endunless -%}

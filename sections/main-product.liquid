@@ -463,6 +463,8 @@
 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {% when 'custom_variant' %}
+                {% render 'custom-variants', product:product %}
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
                   block: block,
@@ -723,7 +725,11 @@
     </script>
   </div>
 </product-info>
-
+<!-- Custom Popup Element (content inside) -->
+<custom-popup id="examplePopup">
+  <h2>{{ pages['size-guide'].title }}</h2>
+  {{ pages['size-guide'].content }}
+</custom-popup>
 {% schema %}
 {
   "name": "t:sections.main-product.name",
@@ -847,6 +853,11 @@
     {
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
+      "limit": 1
+    },
+    {
+      "type": "custom_variant",
+      "name": "Custom Variant",
       "limit": 1
     },
     {

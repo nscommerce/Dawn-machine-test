@@ -1,0 +1,68 @@
+{% style %}
+.recently-viewed-grid .product-card a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+.recently-viewed-grid .product-card a img {
+    width: 100%;
+    min-height: 426px;
+}  
+.recently-viewed-grid .price p {
+    margin: 0;
+}  
+.recently-viewed-grid  h4 {
+    margin: 12px 0;
+}  
+.recently-viewed-wrapper .product-card a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+.recently-viewed-wrapper .product-card a img {
+    width: 100%;
+    min-height: 440px;
+    object-fit: cover;
+}
+.recently-viewed-wrapper .product-card h4 {
+    margin: 5px 0 0;
+}  
+.recently-viewed-wrapper .product-card  .price p {
+    margin: 0.5rem 0 0;
+}
+.recently-viewed-wrapper .swiper-button-next, .recently-viewed-wrapper .swiper-button-prev {
+    background-color: #fff;
+    box-shadow: 0 4px 4px #00000040;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}  
+.recently-viewed-wrapper .swiper-pagination {
+    display: none;
+}
+
+  
+{% endstyle %}
+<div class="page-width">
+  <h2>Recently Viewed Products</h2>
+  <recently-viewed 
+    current-handle="{{ product.handle }}" >
+  </recently-viewed>
+</div>
+{% schema %}
+  {
+    "name": "Recently viewed Products",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Recently viewed Products"
+      }
+    ]
+  }
+{% endschema %}
