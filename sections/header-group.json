@@ -23,10 +23,21 @@
             "text_color": "#ffffff",
             "expiry": "2025-08-0811:00"
           }
+        },
+        "announcement_tRmnhf": {
+          "type": "announcement",
+          "settings": {
+            "message": "Free Shipping on orders over ₹999",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#ffffff",
+            "expiry": "2025-08-0811:00"
+          }
         }
       },
       "block_order": [
-        "announcement_kyCPCN"
+        "announcement_kyCPCN",
+        "announcement_tRmnhf"
       ],
       "name": "Announcement Bar with Slider",
       "settings": {
