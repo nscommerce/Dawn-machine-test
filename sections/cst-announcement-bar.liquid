@@ -1,10 +1,14 @@
-<div id="announcement-bar" class="relative w-full overflow-hidden">
-  <div class="slider flex transition-transform duration-500 ease-in-out">
+<style>
+  #announcement-bar { position: relative; width: 100%; }
+  #announcement-bar .slide { min-width: 100%; }
+</style>
+<div class="swiper announcement-swiper">
+  <div class="swiper-wrapper">
     {% for block in section.blocks %}
-      <div class="slide flex items-center justify-center text-center px-4 py-2"
+      <div class="swiper-slide flex items-center justify-center text-center px-4 py-2"
            style="background-color: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
-        <a href="{{ block.settings.link | default: '#' }}" class="flex flex-col items-center gap-1">
-          <span class="font-medium">{{ block.settings.message }}</span>
+        <a href="{{ block.settings.link | default: '#' }}">
+          <span>{{ block.settings.message }}</span>
           {% if block.settings.expiry != blank %}
             <span class="countdown text-sm" data-expiry="{{ block.settings.expiry }}"></span>
           {% endif %}
@@ -12,14 +16,16 @@
       </div>
     {% endfor %}
   </div>
+
+  <!-- Navigation -->
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
 </div>
 
-<script src="{{ 'announcement-bar.js' | asset_url }}"></script>
 
-<style>
-  #announcement-bar { position: relative; width: 100%; }
-  #announcement-bar .slide { min-width: 100%; }
-</style>
+<script src="{{ 'announcement-bar.js' | asset_url }}" defer></script>
+
 {% schema %}
 {
   "name": "Announcement Bar Slider",
