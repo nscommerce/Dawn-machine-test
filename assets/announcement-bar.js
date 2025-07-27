@@ -1,20 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const bar = document.querySelector("#announcement-bar");
-  const slider = bar?.querySelector(".slider");
-  const slides = bar?.querySelectorAll(".slide");
-  const autoplay = {{ section.settings.autoplay | json }};
-  const speed = {{ section.settings.autoplay_speed | json }};
+  const swiper = new Swiper(".announcement-swiper", {
+    loop: true,
+    autoplay: {
+      delay: {{ section.settings.autoplay_speed | json }},
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 
-  let index = 0;
-  if (slides?.length > 1 && autoplay) {
-    setInterval(() => {
-      index = (index + 1) % slides.length;
-      slider.style.transform = `translateX(-${index * 100}%)`;
-    }, speed);
-  }
-
-  // Countdown timers
-  const countdownEls = bar?.querySelectorAll(".countdown");
+  // Countdown logic same as earlier
+  const countdownEls = document.querySelectorAll(".countdown");
   countdownEls.forEach(el => {
     const expiry = new Date(el.dataset.expiry).getTime();
     if (!expiry) return;
@@ -22,19 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = expiry - now;
-
       if (distance <= 0) {
         el.textContent = "Expired";
         clearInterval(timer);
         return;
       }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      el.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+      el.textContent = `${d}d ${h}h ${m}m ${s}s`;
     }, 1000);
   });
 });
