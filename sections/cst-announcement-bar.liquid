@@ -1,6 +1,85 @@
+<div id="announcement-bar" class="relative w-full overflow-hidden">
+  <div class="slider flex transition-transform duration-500 ease-in-out">
+    {% for block in section.blocks %}
+      <div class="slide flex items-center justify-center text-center px-4 py-2"
+           style="background-color: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
+        <a href="{{ block.settings.link | default: '#' }}" class="flex flex-col items-center gap-1">
+          <span class="font-medium">{{ block.settings.message }}</span>
+          {% if block.settings.expiry != blank %}
+            <span class="countdown text-sm" data-expiry="{{ block.settings.expiry }}"></span>
+          {% endif %}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="{{ 'announcement-bar.js' | asset_url }}"></script>
+
+<style>
+  #announcement-bar { position: relative; width: 100%; }
+  #announcement-bar .slide { min-width: 100%; }
+</style>
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Announcement Bar Slider",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay Slider",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (ms)",
+      "default": 4000
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "message",
+          "label": "Announcement Text",
+          "default": "Free Shipping on orders over ₹999"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional Link"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "expiry",
+          "label": "Countdown Expiry (YYYY-MM-DD HH:MM)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar with Slider",
+      "category": "Header"
+    }
+  ]
+}
 {% endschema %}
+
+
