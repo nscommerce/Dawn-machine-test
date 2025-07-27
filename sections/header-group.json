@@ -11,6 +11,29 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "cst_announcement_bar_Mcz6eU": {
+      "type": "cst-announcement-bar",
+      "blocks": {
+        "announcement_kyCPCN": {
+          "type": "announcement",
+          "settings": {
+            "message": "Free Shipping on orders over ₹999",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#ffffff",
+            "expiry": "2025-08-0811:00"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_kyCPCN"
+      ],
+      "name": "Announcement Bar with Slider",
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 4000
+      }
+    },
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
@@ -56,6 +79,7 @@
     }
   },
   "order": [
+    "cst_announcement_bar_Mcz6eU",
     "announcement-bar",
     "header"
   ]
