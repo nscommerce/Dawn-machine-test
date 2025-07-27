@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const swiper = new Swiper(".announcement-swiper", {
     loop: true,
     autoplay: {
-      delay: {{ section.settings.autoplay_speed | json }},
+      delay: 4000,
       disableOnInteraction: false,
     },
     pagination: {
