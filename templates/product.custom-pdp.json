@@ -150,13 +150,43 @@
     },
     "recently_viewed_products_XGt7Mk": {
       "type": "recently-viewed-products",
+      "disabled": true,
       "name": "Recently viewed Products",
       "settings": {}
+    },
+    "17536068409483032a": {
+      "type": "apps",
+      "blocks": {
+        "webiste_audit_cro_recently_view_product_FU7xap": {
+          "type": "shopify://apps/webiste-audit-cro/blocks/recently-view-product/5c18ae8c-2db0-48d8-8288-1dc0644c1602",
+          "settings": {
+            "heading": "Recently Viewed",
+            "subtext": "Here are the products you've looked at recently.",
+            "heading_alignment": "center",
+            "product_alignment": "left",
+            "layout": "slider",
+            "enable_arrows": true,
+            "enable_dots": true,
+            "products_per_desktop": 4,
+            "products_per_mobile": 1,
+            "total_products": 8,
+            "enable_add_to_cart": true,
+            "add_to_cart_text": "Add to Cart"
+          }
+        }
+      },
+      "block_order": [
+        "webiste_audit_cro_recently_view_product_FU7xap"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "recently_viewed_products_XGt7Mk"
+    "recently_viewed_products_XGt7Mk",
+    "17536068409483032a"
   ]
 }
