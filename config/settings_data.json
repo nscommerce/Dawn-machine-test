@@ -149,7 +149,7 @@
       },
       "1168133392437933222": {
         "type": "shopify://apps/webiste-audit-cro/blocks/back-to-top/5c18ae8c-2db0-48d8-8288-1dc0644c1602",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "scroll_trigger_position": 600,
           "back_to_top_text": "Back to Top",
